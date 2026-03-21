@@ -1,0 +1,137 @@
+.testimonials {
+  position: relative;
+  padding: 80px 0;
+  padding-top: 100px;
+  overflow: hidden;
+
+  background: url("https://images.unsplash.com/photo-1523580846011-d3a5bc25702b")
+    center/cover no-repeat;
+}
+
+/* 🔵 Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(2, 6, 23, 0.938),
+    rgba(10, 37, 64, 0.781)
+  );
+  z-index: 1;
+}
+
+/* test-content */
+.test-container {
+  position: relative;
+  z-index: 2;
+  margin: auto;
+  max-width: 1400px;
+}
+
+/* Heading */
+.heading {
+  text-align: center;
+  color: white;
+  font-size: 38px;
+  margin-bottom: 60px;
+}
+
+/* Marquee */
+.marquee {
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+/* Track */
+.track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+
+/* Animations */
+.track.left {
+  animation: scrollLeft 35s linear infinite;
+}
+
+.track.right {
+  animation: scrollRight 35s linear infinite;
+}
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* test-card */
+.test-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  min-width: 300px;
+  max-width: 320px;
+
+  margin: 8px 0;
+
+  padding: 18px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  transition: 0.3s;
+}
+
+/* Hover */
+.test-card:hover {
+  transform: translateY(-6px);
+  border-color: #60a5fa;
+}
+
+/* Image */
+.test-card img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* test-content */
+.test-content h4 {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.test-content p {
+  color: #cbd5f5;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .test-card {
+    min-width: 260px;
+  }
+
+  .heading {
+    font-size: 28px;
+  }
+}

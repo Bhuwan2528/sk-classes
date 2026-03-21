@@ -1,0 +1,142 @@
+.studyVisa {
+  padding: 100px 20px;
+  position: relative;
+  z-index: 1; /* FIX overlap */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADING */
+.studyVisa h2 {
+  font-size: 38px;
+  font-weight: 700;
+  text-align: center;
+  color: #0f172a;
+}
+
+.studyVisa p {
+  text-align: center;
+  max-width: 600px;
+  margin: 12px auto 70px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* SLIDER */
+.slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* CARD */
+.card {
+  flex: 0 0 calc(33.33% - 14px);
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  transition: 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* IMAGE */
+.imgWrap {
+  width: 100%;
+  height: 300px;
+  overflow: hidden ;
+}
+
+.imgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+.card:hover img{
+  transform: scale(1.05);
+  object-fit: cover;
+}
+
+/* CONTENT */
+.cardContent {
+  padding: 30px 20px;
+}
+
+.cardContent h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #0f172a;
+  text-align: center;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.callBtn,
+.whatsappBtn {
+  flex: 1;
+  padding: 13px;
+  border-radius: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: 0.3s;
+}
+
+/* DARK BUTTON */
+.callBtn {
+  background: #0a1a3f;
+  color: #fff;
+}
+
+.callBtn:hover {
+  background: #1e293b;
+}
+
+/* GRADIENT BUTTON */
+.whatsappBtn {
+  background: linear-gradient(45deg, #ee6f15, #eb4f07);
+  color: #fff;
+}
+
+.whatsappBtn:hover {
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .card {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex: 0 0 100%;
+  }
+
+  .studyVisa h2 {
+    font-size: 28px;
+  }
+}

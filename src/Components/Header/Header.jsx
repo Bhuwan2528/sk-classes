@@ -1,0 +1,127 @@
+import React, { useState, useEffect } from "react";
+import "./Header.css";
+import logo from "../../assets/logo.png";
+
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
+
+import { FaChevronDown } from "react-icons/fa";
+
+const Header = ({bg}) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileDropdown, setMobileDropdown] = useState(null);
+  const [scrolled, setScrolled] = useState(bg);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  const toggleDropdown = (name) => {
+    setMobileDropdown(mobileDropdown === name ? null : name);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(bg || window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <>
+      {/* TOPBAR */}
+      <div className="topbar">
+        <div className="top-left">
+          <span><FaPhoneAlt /> +91 99928-88874</span>
+          <span><FaEnvelope /> nagpal.kuldeep@gmail.com</span>
+        </div>
+
+        <div className="top-right">
+          <FaFacebookF />
+          <FaInstagram />
+          <FaLinkedinIn />
+        </div>
+      </div>
+
+      {/* NAVBAR */}
+      <header className={`header ${scrolled ? "scrolled" : ""}`}>
+        <div className="header-container">
+
+          <div className="logo">
+            <img src={logo} alt="logo" />
+          </div>
+
+          <nav className={`nav ${menuOpen ? "open" : ""}`}>
+
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+
+            {/* Study Visa */}
+            <div className="nav-item">
+              <div className="nav-link" onClick={() => toggleDropdown("study")}>
+                Study Visa <FaChevronDown className="arrow" />
+              </div>
+              <div className={`dropdown ${mobileDropdown === "study" ? "show" : ""}`}>
+                <a href="/ielts">Canada</a>
+                <a href="/ielts">Australia</a>
+                <a href="/ielts">UK</a>
+                <a href="/ielts">USA</a>
+                <a href="/ielts">New Zealand</a>
+                <a href="/ielts">Europe</a>
+              </div>
+            </div>
+
+            {/* IELTS */}
+            <div className="nav-item">
+              <div className="nav-link" onClick={() => toggleDropdown("ielts")}>
+                IELTS <FaChevronDown className="arrow" />
+              </div>
+              <div className={`dropdown ${mobileDropdown === "ielts" ? "show" : ""}`}>
+                <a href="/ielts">IELTS</a>
+                <a href="/ielts">Overall Band Score</a>
+              </div>
+            </div>
+
+            {/* PTE */}
+            <div className="nav-item">
+              <div className="nav-link" onClick={() => toggleDropdown("pte")}>
+                PTE <FaChevronDown className="arrow" />
+              </div>
+              <div className={`dropdown ${mobileDropdown === "pte" ? "show" : ""}`}>
+                <a href="/ielts">PTE</a>
+                <a href="/ielts">Benefits of PTE</a>
+              </div>
+            </div>
+
+            {/* Other */}
+            <div className="nav-item">
+              <div className="nav-link" onClick={() => toggleDropdown("other")}>
+                Other Services <FaChevronDown className="arrow" />
+              </div>
+              <div className={`dropdown ${mobileDropdown === "other" ? "show" : ""}`}>
+                <a href="/ielts">Spoken English</a>
+                <a href="/ielts">Spouse Visa</a>
+              </div>
+            </div>
+
+            <a href="/contact">Contact Us</a>
+
+          </nav>
+
+          {/* CUSTOM HAMBURGER */}
+          <div className={`menu-btn ${menuOpen ? "active" : ""}`} onClick={toggleMenu}>
+            <span></span>
+            <span></span>
+          </div>
+
+        </div>
+      </header>
+    </>
+  );
+};
+
+export default Header;

@@ -1,0 +1,172 @@
+.stats-section {
+  position: relative;
+  padding: 120px 20px;
+  overflow: hidden;
+/* 
+  background: radial-gradient(circle at 20% 20%, #072950, transparent 40%),
+              radial-gradient(circle at 80% 30%, #21064d, transparent 40%),
+              linear-gradient(135deg, #020617, #0a2540 60%, #020617); */
+
+              background: #01101d;
+}
+
+/* 🔵 Purple + Blue Blobs */
+.stats-section::before,
+.stats-section::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.stats-section::before {
+  background: #5a95f3;
+  top: -150px;
+  left: -150px;
+}
+
+.stats-section::after {
+  background: #8965db;
+  bottom: -150px;
+  right: -150px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Layout */
+.stats-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* 🔥 Premium Glass Card */
+.stat-card {
+  position: relative;
+  padding: 45px 25px;
+  border-radius: 22px;
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+
+  border: 1.5px solid rgba(207, 207, 207, 0.267);
+
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+/* ✨ Gradient Border Glow */
+.stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  padding: 1px;
+
+  background: linear-gradient(120deg, transparent, #3b82f6, #8b5cf6, transparent);
+
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  opacity: 0;
+  transition: 0.4s;
+}
+
+/* ✨ Soft Shine Effect */
+.stat-card::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.08),
+    transparent
+  );
+  top: -100%;
+  left: -100%;
+  transform: rotate(25deg);
+  transition: 0.6s;
+  opacity: 0;
+}
+
+/* Hover Effects */
+.stat-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card:hover::after {
+  opacity: 1;
+  transform: translateX(100%) rotate(25deg);
+}
+
+/* Icon */
+.stat-icon {
+  font-size: 34px;
+  margin-bottom: 15px;
+  color:  #a78bfa;
+
+  transition: 0.3s;
+}
+
+.stat-card:hover .stat-icon {
+  color: #da5f0e;
+  transform: scale(1.1);
+}
+
+/* Number */
+.stat-number {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 8px;
+
+  background: linear-gradient(135deg, #4186da, #7654da);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-card:hover .stat-number{
+  background: linear-gradient(45deg, #ff6b00, #ff3d77); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Label */
+.stat-card p {
+  color: #cbd5f5;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .stats-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .stats-wrapper {
+    grid-template-columns: 1fr;
+  }
+}

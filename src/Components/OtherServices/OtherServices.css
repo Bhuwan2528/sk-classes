@@ -1,0 +1,152 @@
+.other-services {
+  padding: 100px 20px;
+  padding-bottom: 450px;
+  background: linear-gradient(180deg, #f8fafc, #eef3ff);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* 🔥 BLOB BACKGROUND */
+.other-services::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(68, 0, 255, 0.11);
+  border-radius: 50%;
+  top: -100px;
+  left: -100px;
+  filter: blur(80px);
+}
+
+.other-services::after {
+  content: "";
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: rgba(5, 37, 78, 0.164);
+  border-radius: 50%;
+  bottom: -100px;
+  right: -80px;
+  filter: blur(80px);
+}
+
+/* GRID */
+.other-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+/* CARD */
+.other-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: 0.4s ease;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  text-align: left;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* IMAGE */
+.img-box {
+  height: 250px;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+/* CONTENT */
+.card-content {
+  padding: 22px;
+}
+
+.card-content h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 18px;
+}
+
+/* 🔥 BUTTONS */
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* CALL BUTTON */
+.call-btn {
+  background: #123A7A;
+  color: white;
+}
+
+.call-btn:hover {
+  background: #0A1F44;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp-btn {
+  background: #FF7A00;
+  color: white;
+}
+
+.whatsapp-btn:hover {
+  background: #e96d08;
+}
+
+/* HOVER EFFECT */
+.other-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+}
+
+.other-card:hover img {
+  transform: scale(1.08);
+}
+
+/* 🔥 SUBTLE GLOW ON HOVER */
+.other-card:hover {
+  border: 1px solid rgba(255,122,0,0.4);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .other-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .other-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+}
