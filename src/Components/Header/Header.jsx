@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 
 import { FaChevronDown } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({bg}) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,6 +19,7 @@ const Header = ({bg}) => {
   const [scrolled, setScrolled] = useState(bg);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
+  const navigate = useNavigate();
 
   const toggleDropdown = (name) => {
     setMobileDropdown(mobileDropdown === name ? null : name);
@@ -51,7 +53,7 @@ const Header = ({bg}) => {
       <header className={`header ${scrolled ? "scrolled" : ""}`}>
         <div className="header-container">
 
-          <div className="logo">
+          <div className="logo" onClick={()=>{navigate('/')}}>
             <img src={logo} alt="logo" />
           </div>
 

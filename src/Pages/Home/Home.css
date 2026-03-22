@@ -94,6 +94,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   transition: 0.3s;
   box-shadow: 0 8px 25px rgba(255, 100, 0, 0.4);
@@ -131,7 +132,9 @@
 
 .home-hero-stats h3 {
   font-size: 28px;
-  color: #ff6b00;
+  background: linear-gradient(45deg, #ff6b00, #ff3d77);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .home-hero-stats span {
@@ -142,7 +145,7 @@
 /* MOBILE FIX 🔥 */
 @media (max-width: 768px) {
   .home-hero {
-    height: 100vh; /* IMPORTANT FIX */
+    height: 110vh; /* IMPORTANT FIX */
     min-height: unset;
   }
 

@@ -1,0 +1,168 @@
+.enquiry {
+  padding: 100px 20px;
+  padding-bottom: 400px;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(135deg, #020617, #0a2540 60%, #020617);
+}
+
+/* 🔥 Background Blobs */
+.enquiry::before,
+.enquiry::after {
+  content: "";
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.enquiry::before {
+  background: #307bf3;
+  top: -120px;
+  left: -120px;
+}
+
+.enquiry::after {
+  background: #7c45fd;
+  bottom: -120px;
+  right: -120px;
+}
+
+/* Layout */
+.enquiry-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* LEFT FORM */
+.form-box {
+  padding: 35px;
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-box h3 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.form-box input,
+.form-box textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+
+  outline: none;
+}
+
+.form-box input:focus,
+.form-box textarea:focus{
+    border: 1px solid rgba(172, 217, 243, 0.658)
+}
+
+/* Placeholder */
+.form-box input::placeholder,
+.form-box textarea::placeholder {
+  color: #cbd5f5;
+}
+
+/* Button */
+.form-box button {
+  width: 100%;
+  padding: 17px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+  font-weight: 500;
+
+  transition: 0.3s;
+}
+
+.form-box button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+}
+
+/* RIGHT CONTENT */
+.content-box h2 {
+  font-size: 40px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.content-box h2 span {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.content-box p {
+  color: #cbd5f5;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.content-box ul {
+  list-style: none;
+}
+
+.content-box li {
+  color: #e2e8f0;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .enquiry-container {
+    grid-template-columns: 1fr;
+  }
+
+  .content-box {
+    text-align: left;
+  }
+
+  .content-box h2 {
+    font-size: 30px;
+  }
+}
+
+@media(max-width: 600px){
+    .form-box{
+        padding: 20px;
+    }
+    .form-box h3{
+        text-align: center;
+    }
+    .content-box h2 {
+        font-size: 28px;
+        line-height: 1.4;
+    }
+    .enquiry{
+        padding-bottom: 350px;
+    }
+}

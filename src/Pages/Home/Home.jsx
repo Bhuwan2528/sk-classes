@@ -10,6 +10,7 @@ import WhyChoose from '../../Components/WhyChoose/WhyChoose';
 import CtaFooter from '../../Components/CtaFooter/CtaFooter';
 import Testimonials from '../../Components/Testimonails/Testimonials';
 import OtherServices from '../../Components/OtherServices/OtherServices';
+import Enquiry from '../../Components/Enquiry/Enquiry';
 
 const images = [
   "https://t3.ftcdn.net/jpg/07/13/60/70/360_F_713607021_gmuzCAzWEAv1oETwSwrTBuIijly7Csq1.jpg",
@@ -103,6 +104,8 @@ const Home = () => {
         <Testimonials/>
 
         <OtherServices/>
+
+        <Enquiry/>
 
         <CtaFooter/>
 

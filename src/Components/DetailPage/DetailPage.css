@@ -1,7 +1,6 @@
 .detail {
   padding: 60px 20px;
   background: #ffffff;
-  padding-bottom: 390px;
 }
 
 /* Container */
@@ -124,5 +123,12 @@
 
   .detail-image img {
     height: 250px;
+  }
+
+  .detail-container{
+    padding: 20px;
+  }
+  .detail{
+    padding: 60px 10px;
   }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import "./CtaFooter.css";
 import girlImg from "../../assets/girl.png"; // tumhari image
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 import logo from '../../assets/logo.png'
 
 const CtaFooter = () => {
@@ -20,7 +21,20 @@ const CtaFooter = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ea enim impedit, consequatur eum autem ex eaque reprehenderit? Numquam incidunt nulla explicabo dolorem. Quidem error porro nam animi aliquam nihil.
             </p>
 
-            <button className="cta-btn">Apply Now</button>
+                <div className="buttons">
+                  <a href="tel:+919999999999" className="callBtn">
+                    <FaPhoneAlt /> Call
+                  </a>
+
+                  <a
+                    href="https://wa.me/919999999999"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="whatsappBtn"
+                  >
+                    <FaWhatsapp /> Enquire
+                  </a>
+                </div>
           </div>
 
           <div className="cta-right">

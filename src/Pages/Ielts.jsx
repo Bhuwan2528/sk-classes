@@ -3,6 +3,7 @@ import Banner from '../Components/Banner/Banner'
 import Header from '../Components/Header/Header'
 import DetailPage from '../Components/DetailPage/DetailPage'
 import CtaFooter from '../Components/CtaFooter/CtaFooter'
+import Enquiry from '../Components/Enquiry/Enquiry'
 
 const Ielts = () => {
   return (
@@ -10,6 +11,7 @@ const Ielts = () => {
         <Header bg={true} />
         <Banner title="Ielts"/>
         <DetailPage/>
+        <Enquiry/>
         <CtaFooter/>
     </div>
   )
