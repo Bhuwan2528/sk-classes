@@ -47,20 +47,98 @@
 }
 
 /* BUTTON */
-.cta-btn {
-  background: #FF7A00;
-  color: white;
-  border: none;
-  padding: 12px 22px;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
+/* UNIQUE CLASS — safe to use anywhere */
+.cta-dual {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
+/* Base Button */
+.cta-btn {
+  padding: 15px 28px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+
+  font-weight: 500;
+  font-size: 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🔵 CALL BUTTON (Glass Light) */
+.call-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 💬 WHATSAPP BUTTON (Primary CTA) */
+.whatsapp-btn {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+}
+
+/* Hover Effects */
 .cta-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transform: translateY(-3px);
+}
+
+/* Glow Effect */
+.whatsapp-btn:hover {
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.5);
+}
+
+.call-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Shine Animation */
+.cta-btn::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+  top: -100%;
+  left: -100%;
+  transform: rotate(25deg);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.cta-btn:hover::after {
+  opacity: 1;
+  transform: translateX(100%) rotate(25deg);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .cta-dual {
+    flex-direction: column;
+  }
+
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* RIGHT IMAGE */

@@ -21,20 +21,26 @@ const CtaFooter = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ea enim impedit, consequatur eum autem ex eaque reprehenderit? Numquam incidunt nulla explicabo dolorem. Quidem error porro nam animi aliquam nihil.
             </p>
 
-                <div className="buttons">
-                  <a href="tel:+919999999999" className="callBtn">
-                    <FaPhoneAlt /> Call
-                  </a>
+            <div className="cta-dual">
+              <button
+                className="cta-btn call-btn"
+                onClick={() => window.location.href = "tel:+919999999999"}
+              >
+                <FaPhoneAlt /> Call Now
+              </button>
 
-                  <a
-                    href="https://wa.me/919999999999"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="whatsappBtn"
-                  >
-                    <FaWhatsapp /> Enquire
-                  </a>
-                </div>
+              <button
+                className="cta-btn whatsapp-btn"
+                onClick={() =>
+                  window.open(
+                    "https://wa.me/919999999999?text=Hello SK Classes, I want to enquire about your services",
+                    "_blank"
+                  )
+                }
+              >
+                <FaWhatsapp/> Enquire on WhatsApp
+              </button>
+            </div>
           </div>
 
           <div className="cta-right">
