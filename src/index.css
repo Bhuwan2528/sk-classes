@@ -12,3 +12,8 @@ p{
 body{
   background: #f8fafc;
 }
+
+a{
+  text-decoration: none;
+  color: #333;
+}

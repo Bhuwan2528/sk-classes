@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Header.css";
 import logo from "../../assets/logo.png";
+import axios from "axios";
 
 import {
   FaPhoneAlt,
@@ -13,10 +14,12 @@ import {
 import { FaChevronDown } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({bg}) => {
+const Header = ({ bg }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(bg);
+
+  const [headerData, setHeaderData] = useState(null);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const navigate = useNavigate();
@@ -25,6 +28,23 @@ const Header = ({bg}) => {
     setMobileDropdown(mobileDropdown === name ? null : name);
   };
 
+  // ================= FETCH DATA =================
+  useEffect(() => {
+    const fetchHeader = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/header-footer");
+        if (res.data.data?.header) {
+          setHeaderData(res.data.data.header);
+        }
+      } catch (err) {
+        console.log("Header fetch error");
+      }
+    };
+
+    fetchHeader();
+  }, []);
+
+  // ================= SCROLL =================
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(bg || window.scrollY > 50);
@@ -38,14 +58,30 @@ const Header = ({bg}) => {
       {/* TOPBAR */}
       <div className="topbar">
         <div className="top-left">
-          <span><FaPhoneAlt /> +91 99928-88874</span>
-          <span><FaEnvelope /> nagpal.kuldeep@gmail.com</span>
+          <span>
+            <FaPhoneAlt /> {headerData?.phone || "+91-99928-88874"}
+          </span>
+          <span>
+            <FaEnvelope /> {headerData?.email || "nagpal.kuldeep@gmail.com"}
+          </span>
         </div>
 
         <div className="top-right">
-          <FaFacebookF />
-          <FaInstagram />
-          <FaLinkedinIn />
+          <FaFacebookF
+            onClick={() =>
+              window.open(headerData?.socialLinks?.facebook, "facebook.com")
+            }
+          />
+          <FaInstagram
+            onClick={() =>
+              window.open(headerData?.socialLinks?.instagram, "instagram.com")
+            }
+          />
+          <FaLinkedinIn
+            onClick={() =>
+              window.open(headerData?.socialLinks?.linkedin, "linkedin.com")
+            }
+          />
         </div>
       </div>
 
@@ -53,7 +89,7 @@ const Header = ({bg}) => {
       <header className={`header ${scrolled ? "scrolled" : ""}`}>
         <div className="header-container">
 
-          <div className="logo" onClick={()=>{navigate('/')}}>
+          <div className="logo" onClick={() => navigate("/")}>
             <img src={logo} alt="logo" />
           </div>
 
@@ -114,7 +150,7 @@ const Header = ({bg}) => {
 
           </nav>
 
-          {/* CUSTOM HAMBURGER */}
+          {/* HAMBURGER */}
           <div className={`menu-btn ${menuOpen ? "active" : ""}`} onClick={toggleMenu}>
             <span></span>
             <span></span>

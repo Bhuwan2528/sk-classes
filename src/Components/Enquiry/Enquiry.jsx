@@ -1,5 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Enquiry.css";
+import axios from "axios";
+
+const fallbackData = {
+  heading: "Start Your <span>Study Abroad Journey</span> Today",
+  description:
+    "Choosing the right consultancy can make all the difference. At SK Classes, we provide expert guidance, transparent processes, and complete support from IELTS preparation to visa approval.",
+
+  whatsappNumber: "919992888874",
+
+  points: [
+    { text: "7+ Years of Experience" },
+    { text: "High Visa Success Rate" },
+    { text: "Personalized Guidance" },
+    { text: "Trusted by 1000+ Students" },
+  ],
+};
 
 const Enquiry = () => {
   const [form, setForm] = useState({
@@ -10,12 +26,50 @@ const Enquiry = () => {
     message: "",
   });
 
+  const [data, setData] = useState(fallbackData);
+
+  // ✅ FETCH DATA
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/home");
+
+        if (res.data?.data?.formSection) {
+          const incoming = res.data.data.formSection;
+
+          setData({
+            heading: incoming.heading || fallbackData.heading,
+            description:
+              incoming.description || fallbackData.description,
+
+            whatsappNumber:
+              incoming.whatsappNumber ||
+              fallbackData.whatsappNumber,
+
+            points:
+              incoming.points?.length > 0
+                ? incoming.points
+                : fallbackData.points,
+          });
+        }
+      } catch {
+        console.log("Using fallback enquiry data");
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // FORM CHANGE
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // ✅ WHATSAPP SUBMIT (SMART HANDLING)
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const cleanNumber = data.whatsappNumber?.replace("+", "");
 
     const text = `Hello SK Classes,%0A
 Name: ${form.name}%0A
@@ -24,7 +78,7 @@ Address: ${form.address}%0A
 Interested In: ${form.visa}%0A
 Message: ${form.message}`;
 
-    window.open(`https://wa.me/919999999999?text=${text}`, "_blank");
+    window.open(`https://wa.me/${cleanNumber}?text=${text}`, "_blank");
   };
 
   return (
@@ -79,22 +133,20 @@ Message: ${form.message}`;
 
         {/* RIGHT CONTENT */}
         <div className="content-box">
-          <h2>
-            Start Your <span>Study Abroad Journey</span> Today
-          </h2>
+          
+          {/* ✅ HTML RENDER */}
+          <h2
+            dangerouslySetInnerHTML={{ __html: data.heading }}
+          />
 
-          <p>
-            Choosing the right consultancy can make all the difference. At SK
-            Classes, we provide expert guidance, transparent processes, and
-            complete support from IELTS preparation to visa approval.
-          </p>
+          <p>{data.description}</p>
 
           <ul>
-            <li>✔ 7+ Years of Experience</li>
-            <li>✔ High Visa Success Rate</li>
-            <li>✔ Personalized Guidance</li>
-            <li>✔ Trusted by 1000+ Students</li>
+            {data.points.map((point, index) => (
+              <li key={index}>{point.text}</li>
+            ))}
           </ul>
+
         </div>
 
       </div>

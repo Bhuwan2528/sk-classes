@@ -4,6 +4,10 @@
   z-index: 1; /* FIX overlap */
 }
 
+.about-study-visa .studyVisa{
+  padding: 60px 20px;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

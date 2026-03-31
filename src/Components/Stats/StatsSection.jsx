@@ -6,6 +6,7 @@ import {
   FaChartLine,
 } from "react-icons/fa";
 import "./StatsSection.css";
+import axios from "axios";
 
 /* Counter Hook */
 const useCounter = (end, duration = 2000, start) => {
@@ -37,6 +38,63 @@ const useCounter = (end, duration = 2000, start) => {
 const StatsSection = () => {
   const [start, setStart] = useState(false);
 
+  // ✅ DATA STATE (fallback included)
+  const [stats, setStats] = useState([
+    {
+      end: 1500,
+      suffix: "+",
+      label: "Happy Clients",
+    },
+    {
+      end: 7,
+      suffix: "+",
+      label: "Years Of Experience",
+    },
+    {
+      end: 1100,
+      suffix: "+",
+      label: "Study Visa",
+    },
+    {
+      end: 98,
+      suffix: "%",
+      label: "Success Rate",
+    },
+  ]);
+
+  // ✅ ICON MAPPING (fixed)
+  const icons = [
+    <FaUserGraduate />,
+    <FaCalendarAlt />,
+    <FaPlane />,
+    <FaChartLine />,
+  ];
+
+  // ✅ FETCH DATA
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/home");
+
+        if (res.data?.data?.statsSection?.items) {
+          const incoming = res.data.data.statsSection.items;
+
+          setStats([
+            incoming?.[0] || stats[0],
+            incoming?.[1] || stats[1],
+            incoming?.[2] || stats[2],
+            incoming?.[3] || stats[3],
+          ]);
+        }
+      } catch {
+        console.log("Using fallback stats");
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // ✅ SCROLL START
   useEffect(() => {
     const handleScroll = () => {
       const el = document.getElementById("stats-section");
@@ -54,50 +112,21 @@ const StatsSection = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const stats = [
-    {
-      end: 1500,
-      suffix: "+",
-      label: "Happy Clients",
-      icon: <FaUserGraduate />,
-    },
-    {
-      end: 7,
-      suffix: "+",
-      label: "Years Of Experience",
-      icon: <FaCalendarAlt />,
-    },
-    {
-      end: 1100,
-      suffix: "+",
-      label: "Study Visa",
-      icon: <FaPlane />,
-    },
-    {
-      end: 98.76,
-      suffix: "%",
-      label: "Success Rate",
-      icon: <FaChartLine />,
-      decimals: 2,
-    },
-  ];
-
   return (
     <section className="stats-section" id="stats-section">
       <div className="stats-overlay"></div>
 
       <div className="container stats-wrapper">
         {stats.map((item, i) => {
-          const value = useCounter(item.end, 2000, start);
+          const value = useCounter(Number(item.end) || 0, 2000, start);
 
           return (
             <div className="stat-card" key={i}>
-              <div className="stat-icon">{item.icon}</div>
+              
+              <div className="stat-icon">{icons[i]}</div>
 
               <h2 className="stat-number">
-                {item.decimals
-                  ? value.toFixed(item.decimals)
-                  : Math.floor(value)}
+                {Math.floor(value)}
                 {item.suffix}
               </h2>
 

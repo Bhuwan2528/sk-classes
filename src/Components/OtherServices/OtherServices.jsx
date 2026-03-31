@@ -1,63 +1,140 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./OtherServices.css";
+import axios from "axios";
 
-const services = [
-  {
-    title: "IELTS Coaching",
-    desc: "Achieve your desired band score with expert training and real exam strategies.",
-    img: "https://www.oxfordinternationalenglish.com/wp-content/uploads/2025/06/Smiling-woman-working-in-a-laptop-1.jpg",
+// ✅ FALLBACK DATA (existing)
+const fallbackData = {
+  sectionTitle: "Other Services",
+  sectionSubtitle:
+    "We also offer specialized training programs designed to enhance your language skills and prepare you for global opportunities.",
+
+  contact: {
+    callNumber: "919992888874",
+    whatsappNumber: "919992888874",
   },
-  {
-    title: "PTE Preparation",
-    desc: "Fast-track your PTE success with AI-based practice and guided sessions.",
-    img: "https://caribbean.britishcouncil.org/sites/default/files/ielts_listening.jpg",
-  },
-  {
-    title: "Spoken English",
-    desc: "Boost confidence with practical speaking sessions and personality development.",
-    img: "https://cdn.prod.website-files.com/659bb0ec522de2d79f49ff55/65ca0af494615ead7239b6ec_virtual-classroom-study-space.jpg",
-  },
-];
+
+  items: [
+    {
+      title: "IELTS Coaching",
+      description:
+        "Achieve your desired band score with expert training and real exam strategies.",
+      image:
+        "https://www.oxfordinternationalenglish.com/wp-content/uploads/2025/06/Smiling-woman-working-in-a-laptop-1.jpg",
+    },
+    {
+      title: "PTE Preparation",
+      description:
+        "Fast-track your PTE success with AI-based practice and guided sessions.",
+      image:
+        "https://caribbean.britishcouncil.org/sites/default/files/ielts_listening.jpg",
+    },
+    {
+      title: "Spoken English",
+      description:
+        "Boost confidence with practical speaking sessions and personality development.",
+      image:
+        "https://cdn.prod.website-files.com/659bb0ec522de2d79f49ff55/65ca0af494615ead7239b6ec_virtual-classroom-study-space.jpg",
+    },
+  ],
+};
 
 const OtherServices = () => {
+  const [data, setData] = useState(fallbackData);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/home");
+
+        if (res.data?.data?.otherServices) {
+          const incoming = res.data.data.otherServices;
+
+          setData({
+            sectionTitle:
+              incoming.sectionTitle || fallbackData.sectionTitle,
+
+            sectionSubtitle:
+              incoming.sectionSubtitle ||
+              fallbackData.sectionSubtitle,
+
+            contact: {
+              callNumber:
+                incoming.contact?.callNumber ||
+                fallbackData.contact.callNumber,
+
+              whatsappNumber:
+                incoming.contact?.whatsappNumber ||
+                fallbackData.contact.whatsappNumber,
+            },
+
+            items: [
+              incoming.items?.[0] || fallbackData.items[0],
+              incoming.items?.[1] || fallbackData.items[1],
+              incoming.items?.[2] || fallbackData.items[2],
+            ],
+          });
+        }
+      } catch (err) {
+        console.log("Fallback data used");
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <section className="other-services">
       <div className="container">
 
-        <h2 className="section-title">Other Services</h2>
+        <h2 className="section-title">{data.sectionTitle}</h2>
 
-        <p className="section-subtitle">
-          We also offer specialized training programs designed to enhance your
-          language skills and prepare you for global opportunities.
-        </p>
+        <p className="section-subtitle">{data.sectionSubtitle}</p>
 
         <div className="other-grid">
-          {services.map((item, index) => (
+          {data.items.map((item, index) => (
             <div className="other-card" key={index}>
-                <div className="img-box">
-                    <img src={item.img} alt={item.title} />
+              
+              <div className="img-box">
+                <img src={item.image} alt={item.title} />
+              </div>
+
+              <div className="card-content">
+                <h3>{item.title}</h3>
+
+                <p>
+                  {item.description ||
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit."}
+                </p>
+
+                <div className="card-actions">
+                  
+                  {/* ✅ CALL */}
+                  <a
+                    href={`tel:${
+                      data.contact.callNumber?.startsWith("+")
+                        ? data.contact.callNumber
+                        : "+" + data.contact.callNumber
+                    }`}
+                    className="btn call-btn"
+                  >
+                    Call Now
+                  </a>
+
+                  {/* ✅ WHATSAPP */}
+                  <a
+                    href={`https://wa.me/${data.contact.whatsappNumber?.replace(
+                      "+",
+                      ""
+                    )}`}
+                    target="Hello SK Classes, I want to enquire about your services"
+                    rel="noopener noreferrer"
+                    className="btn whatsapp-btn"
+                  >
+                    Enquire Now
+                  </a>
+
                 </div>
-
-                <div className="card-content">
-                    <h3>{item.title}</h3>
-                    {/* <p>{item.desc}</p> */}
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molestiae ratione distinctio minima doloremque, facilis accusamus nobis? Officiis delectus excepturi exercitationem</p>
-
-                    <div className="card-actions">
-                    <a href="tel:9999999999" className="btn call-btn">
-                        Call Now
-                    </a>
-
-                    <a
-                        href="https://wa.me/919999999999"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn whatsapp-btn"
-                    >
-                        Enquire Now
-                    </a>
-                    </div>
-                </div>
+              </div>
             </div>
           ))}
         </div>

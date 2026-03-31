@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css'
+import axios from 'axios'
 import Header from '../../Components/Header/Header'
 import { FaArrowRight } from "react-icons/fa";
 import AboutSection from '../../Components/AboutSection/AboutSection';
@@ -12,107 +13,144 @@ import Testimonials from '../../Components/Testimonails/Testimonials';
 import OtherServices from '../../Components/OtherServices/OtherServices';
 import Enquiry from '../../Components/Enquiry/Enquiry';
 
-const images = [
-  "https://t3.ftcdn.net/jpg/07/13/60/70/360_F_713607021_gmuzCAzWEAv1oETwSwrTBuIijly7Csq1.jpg",
+// ✅ FALLBACK DATA
+const fallbackHero = {
+  heading: `Study Abroad Made Easy <br /> with <span>SK Classes</span>`,
+  description:
+    "Get expert guidance for Canada, UK, Australia, USA & more — from admission to visa approval.",
 
-  "https://cdn.shopify.com/s/files/1/0499/3630/2238/files/IELTS_In-Dept_Guide_for_Foreign_Educated_Nurses.png?v=1672727434",
+  buttons: [
+    { text: "Book Free Consultation", url: "#" },
+    { text: "Explore Countries", url: "#" }
+  ],
 
-  "https://images.ctfassets.net/unrdeg6se4ke/1XgCpIxTXPkwc2JQxG1Csf/45c1c8879e6906016a8199c332f14e3d/shutterstock_1420330667.jpg",
+  images: [
+    "https://t3.ftcdn.net/jpg/07/13/60/70/360_F_713607021_gmuzCAzWEAv1oETwSwrTBuIijly7Csq1.jpg",
+    "https://cdn.shopify.com/s/files/1/0499/3630/2238/files/IELTS_In-Dept_Guide_for_Foreign_Educated_Nurses.png?v=1672727434",
+    "https://images.ctfassets.net/unrdeg6se4ke/1XgCpIxTXPkwc2JQxG1Csf/45c1c8879e6906016a8199c332f14e3d/shutterstock_1420330667.jpg",
+    "https://inphase.global/wp-content/uploads/2023/06/ielts-new.webp",
+  ],
 
-  "https://inphase.global/wp-content/uploads/2023/06/ielts-new.webp",
-];
+  stats: [
+    { number: "1500+", label: "Students" },
+    { number: "98%", label: "Success Rate" },
+    { number: "7 Y+", label: "Experience" },
+  ]
+};
 
 const Home = () => {
 
+  const [heroData, setHeroData] = useState(fallbackHero);
   const [current, setCurrent] = useState(0);
 
+  // ✅ FETCH HERO DATA
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/home");
+
+        if (res.data?.data?.hero) {
+          const data = res.data.data.hero;
+
+          setHeroData({
+            heading: data.heading || fallbackHero.heading,
+            description: data.description || fallbackHero.description,
+            buttons:
+              data.buttons?.length >= 2
+                ? data.buttons
+                : fallbackHero.buttons,
+            images:
+              data.images?.length > 0
+                ? data.images
+                : fallbackHero.images,
+            stats:
+              data.stats?.length > 0
+                ? data.stats
+                : fallbackHero.stats,
+          });
+        }
+      } catch (err) {
+        console.log("Using fallback hero data");
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // ✅ SLIDER
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
+      setCurrent((prev) => (prev + 1) % heroData.images.length);
     }, 4000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [heroData.images]);
 
   return (
     <div>
-        <Header/>
+      <Header />
 
-        <section className="home-hero">
+      <section className="home-hero">
+
         {/* BACKGROUND SLIDER */}
         <div className="home-hero-slider">
-            {images.map((img, index) => (
+          {heroData.images.map((img, index) => (
             <div
-                key={index}
-                className={`home-hero-slide ${index === current ? "active" : ""}`}
-                style={{ backgroundImage: `url(${img})` }}
+              key={index}
+              className={`home-hero-slide ${index === current ? "active" : ""}`}
+              style={{ backgroundImage: `url(${img})` }}
             ></div>
-            ))}
+          ))}
         </div>
 
         <div className="home-hero-overlay"></div>
 
         {/* CONTENT */}
         <div className="home-hero-content">
-            <h1>
-            Study Abroad Made Easy <br />
-            with <span>SK Classes</span>
-            </h1>
 
-            <p>
-            Get expert guidance for Canada, UK, Australia, USA & more —
-            from admission to visa approval.
-            </p>
+          {/* ✅ DYNAMIC HEADING */}
+          <h1 dangerouslySetInnerHTML={{ __html: heroData.heading }} />
 
-            <div className="home-hero-buttons">
-            <button className="primary-btn">
-                Book Free Consultation <FaArrowRight />
-            </button>
+          {/* DESCRIPTION */}
+          <p>{heroData.description}</p>
 
-            <button className="secondary-btn">
-                Explore Countries
-            </button>
-            </div>
+          {/* BUTTONS */}
+          <div className="home-hero-buttons">
+            {heroData.buttons.map((btn, index) => (
+              <button
+                key={index}
+                className={index === 0 ? "primary-btn" : "secondary-btn"}
+                onClick={() => window.open(btn.url, "_blank")}
+              >
+                {btn.text} {index === 0 && <FaArrowRight />}
+              </button>
+            ))}
+          </div>
 
-            <div className="home-hero-stats">
-            <div>
-                <h3>1500+</h3>
-                <span>Students</span>
-            </div>
-            <div>
-                <h3>98%</h3>
-                <span>Success Rate</span>
-            </div>
-            <div>
-                <h3>7 Y+</h3>
-                <span>Experience</span>
-            </div>
-            </div>
+          {/* STATS */}
+          <div className="home-hero-stats">
+            {heroData.stats.map((item, index) => (
+              <div key={index}>
+                <h3>{item.number}</h3>
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
+
         </div>
-        </section>
+      </section>
 
-        <AboutSection/>
+      <AboutSection />
+      <StatsSection />
+      <Services />
+      <StudyVisa />
+      <WhyChoose />
+      <Testimonials />
+      <OtherServices />
+      <Enquiry />
+      <CtaFooter />
+    </div>
+  );
+};
 
-        <StatsSection/>
-
-        <Services/>
-
-        <StudyVisa/>
-
-        <WhyChoose/>
-
-        <Testimonials/>
-
-        <OtherServices/>
-
-        <Enquiry/>
-
-        <CtaFooter/>
-
-        
-
-            </div>
-  )
-}
-
-export default Home
+export default Home;

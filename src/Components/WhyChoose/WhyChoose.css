@@ -75,9 +75,6 @@
   font-size: 15px;
 }
 
-.why-left .primary-btn{
-  margin-inline: auto;
-}
 
 
 /* RIGHT GRID (Staggered) */
@@ -199,6 +196,10 @@
 
   .why-left {
     margin: auto;
+  }
+
+  .why-left .primary-btn{
+    margin-inline: auto;
   }
 
   .why-right {
