@@ -16,6 +16,7 @@ import AdminWhyChoose from './Admin/AdminForms/AdminWhyChoose'
 import AdminTestimonials from './Admin/AdminForms/AdminTestimonials'
 import AdminOtherServices from './Admin/AdminForms/AdminOtherServices'
 import AdminEnquiryStats from './Admin/AdminForms/AdminEnquiryStats'
+import Canada from './Pages/StudyVisa/Canada'
 
 const App = () => {
   return (
@@ -26,6 +27,8 @@ const App = () => {
         <Route path='/about' element={<About/>} />
         <Route path='/contact' element={<Contact/>} />
         <Route path='/ielts' element={<Ielts/>} />
+        
+        <Route path='/canada' element={<Canada/>} />
 
 
         <Route path='/hf' element={<AdminHeaderFooter />} />

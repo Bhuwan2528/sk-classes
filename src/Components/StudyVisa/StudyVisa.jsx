@@ -41,7 +41,7 @@ const fallbackData = {
     {
       title: "Study in Ireland",
       image:
-        "https://media.istockphoto.com/id/641736118/photo/houses-and-catherdral-in-cobh-ireland.jpg",
+        "https://media.istockphoto.com/id/641736118/photo/houses-and-catherdral-in-cobh-ireland.jpg?s=612x612&w=0&k=20&c=dTQbo6doEK9vJyW1MnOy67q-WtH8Odnkd1SY0UpNgV0=",
     },
   ],
 };

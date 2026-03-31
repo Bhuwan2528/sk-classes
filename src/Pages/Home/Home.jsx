@@ -25,10 +25,10 @@ const fallbackHero = {
   ],
 
   images: [
-    "https://t3.ftcdn.net/jpg/07/13/60/70/360_F_713607021_gmuzCAzWEAv1oETwSwrTBuIijly7Csq1.jpg",
-    "https://cdn.shopify.com/s/files/1/0499/3630/2238/files/IELTS_In-Dept_Guide_for_Foreign_Educated_Nurses.png?v=1672727434",
-    "https://images.ctfassets.net/unrdeg6se4ke/1XgCpIxTXPkwc2JQxG1Csf/45c1c8879e6906016a8199c332f14e3d/shutterstock_1420330667.jpg",
-    "https://inphase.global/wp-content/uploads/2023/06/ielts-new.webp",
+    "https://hrinternational.in/blog/wp-content/uploads/2024/06/Best-Visa-Consultancy-Near-Your-Home-for-Canada.jpg",
+    "https://static.vecteezy.com/system/resources/thumbnails/069/033/140/small/top-down-view-of-the-word-visa-on-a-clean-light-grey-background-vibrant-and-glossy-american-flag-photo.jpeg",
+    "https://lh4.googleusercontent.com/proxy/l1ZutDf6l3llnVuouV5uYfNYy11g2sxkWd7atoNKHl73Cq2ZV5ijv6pG-qVVuBfFjviy_G9faG5h-_b1usGjBaF5wII",
+    "https://kadamboverseas.com/wp-content/uploads/2024/11/Europe-student-visa-consultants-in-ahmedabad.jpg",
   ],
 
   stats: [
