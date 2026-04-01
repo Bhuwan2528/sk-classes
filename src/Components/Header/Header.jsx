@@ -104,12 +104,12 @@ const Header = ({ bg }) => {
                 Study Visa <FaChevronDown className="arrow" />
               </div>
               <div className={`dropdown ${mobileDropdown === "study" ? "show" : ""}`}>
-                <a href="/ielts">Canada</a>
-                <a href="/ielts">Australia</a>
-                <a href="/ielts">UK</a>
-                <a href="/ielts">USA</a>
-                <a href="/ielts">New Zealand</a>
-                <a href="/ielts">Europe</a>
+                <a href="/study-in-canada">Canada</a>
+                <a href="/study-in-australia">Australia</a>
+                <a href="/study-in-uk">UK</a>
+                <a href="/study-in-usa">USA</a>
+                <a href="/study-in-new-zealand">New Zealand</a>
+                <a href="/study-in-europe">Europe</a>
               </div>
             </div>
 
@@ -120,7 +120,7 @@ const Header = ({ bg }) => {
               </div>
               <div className={`dropdown ${mobileDropdown === "ielts" ? "show" : ""}`}>
                 <a href="/ielts">IELTS</a>
-                <a href="/ielts">Overall Band Score</a>
+                <a href="/band-score">Overall Band Score</a>
               </div>
             </div>
 
@@ -130,8 +130,8 @@ const Header = ({ bg }) => {
                 PTE <FaChevronDown className="arrow" />
               </div>
               <div className={`dropdown ${mobileDropdown === "pte" ? "show" : ""}`}>
-                <a href="/ielts">PTE</a>
-                <a href="/ielts">Benefits of PTE</a>
+                <a href="/pte">PTE</a>
+                <a href="/pte-benifits">Benefits of PTE</a>
               </div>
             </div>
 
@@ -141,8 +141,8 @@ const Header = ({ bg }) => {
                 Other Services <FaChevronDown className="arrow" />
               </div>
               <div className={`dropdown ${mobileDropdown === "other" ? "show" : ""}`}>
-                <a href="/ielts">Spoken English</a>
-                <a href="/ielts">Spouse Visa</a>
+                <a href="/spoken-english">Spoken English</a>
+                <a href="/spouse-visa">Spouse Visa</a>
               </div>
             </div>
 

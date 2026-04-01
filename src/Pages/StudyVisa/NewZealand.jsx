@@ -8,11 +8,11 @@ import Header from "../../Components/Header/Header";
 import CtaFooter from "../../Components/CtaFooter/CtaFooter";
 import Banner from "../../Components/Banner/Banner";
 
-const Canada = () => {
+const NewZealand = () => {
   return (
     <>
     <Header bg={true}/>
-    <Banner title="Study In Canada"/>
+    <Banner title="Study In New Zealand"/>
 
     <div className="study-page">
     <Sidebar />
@@ -20,15 +20,15 @@ const Canada = () => {
     <div className="study-content">
 
         <div className="study-header">
-        <h1 className="study-header-title">The Canada</h1>
+        <h1 className="study-header-title">The New Zealand</h1>
         <p className="study-header-tagline">Score 8+ Bands with Certified and experienced SK Classes Coach
 </p>
-        <p className="study-header-desc">When it comes to world-class education, Canada stands as a beacon of excellence, offering a welcoming environment, top-tier institutions, and a diverse cultural tapestry. Studying in Canada isn’t just about gaining a degree.</p>
-         <p className="study-header-desc">When it comes to world-class education, Canada stands as a beacon of excellence, offering a welcoming environment, top-tier institutions, and a diverse cultural tapestry. Studying in Canada isn’t just about gaining a degree.</p>
+        <p className="study-header-desc">When it comes to world-class education, New Zealand stands as a beacon of excellence, offering a welcoming environment, top-tier institutions, and a diverse cultural tapestry. Studying in New Zealand isn’t just about gaining a degree.</p>
+         <p className="study-header-desc">When it comes to world-class education, New Zealand stands as a beacon of excellence, offering a welcoming environment, top-tier institutions, and a diverse cultural tapestry. Studying in New Zealand isn’t just about gaining a degree.</p>
         </div>
 
         <div className="study-hero">
-        <img src="https://adventures.com/media/17840/h-toronto-canada-city-skyline-view-sunset.jpg?anchor=center&mode=crop&width=1920&height=510&format=jpg&quality=80&rnd=132663140480000000" />
+        <img src="https://4kwallpapers.com/images/wallpapers/lake-wakatipu-queenstown-new-zealand-snow-mountains-2560x1440-2125.jpg" />
         </div>
 
         <section className="study-why">
@@ -89,7 +89,7 @@ const Canada = () => {
         <h2 className="study-section-title">Top institutes</h2>
 
         <p className="study-universities-desc">
-          Canada’s educational landscape shines with a constellation of top-tier universities that have garnered global recognition for their academic prowess, research contributions, and commitment to innovation.
+          New Zealand’s educational landscape shines with a constellation of top-tier universities that have garnered global recognition for their academic prowess, research contributions, and commitment to innovation.
         </p>
 
         <div className="study-uni-grid">
@@ -152,4 +152,4 @@ const Canada = () => {
   );
 };
 
-export default Canada;
+export default NewZealand;

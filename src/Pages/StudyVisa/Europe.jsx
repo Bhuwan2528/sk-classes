@@ -8,11 +8,11 @@ import Header from "../../Components/Header/Header";
 import CtaFooter from "../../Components/CtaFooter/CtaFooter";
 import Banner from "../../Components/Banner/Banner";
 
-const Canada = () => {
+const Europe = () => {
   return (
     <>
     <Header bg={true}/>
-    <Banner title="Study In Canada"/>
+    <Banner title="Study In Europe"/>
 
     <div className="study-page">
     <Sidebar />
@@ -20,15 +20,15 @@ const Canada = () => {
     <div className="study-content">
 
         <div className="study-header">
-        <h1 className="study-header-title">The Canada</h1>
+        <h1 className="study-header-title">The Europe</h1>
         <p className="study-header-tagline">Score 8+ Bands with Certified and experienced SK Classes Coach
 </p>
-        <p className="study-header-desc">When it comes to world-class education, Canada stands as a beacon of excellence, offering a welcoming environment, top-tier institutions, and a diverse cultural tapestry. Studying in Canada isn’t just about gaining a degree.</p>
-         <p className="study-header-desc">When it comes to world-class education, Canada stands as a beacon of excellence, offering a welcoming environment, top-tier institutions, and a diverse cultural tapestry. Studying in Canada isn’t just about gaining a degree.</p>
+        <p className="study-header-desc">When it comes to world-class education, Europe stands as a beacon of excellence, offering a welcoming environment, top-tier institutions, and a diverse cultural tapestry. Studying in Europe isn’t just about gaining a degree.</p>
+         <p className="study-header-desc">When it comes to world-class education, Europe stands as a beacon of excellence, offering a welcoming environment, top-tier institutions, and a diverse cultural tapestry. Studying in Europe isn’t just about gaining a degree.</p>
         </div>
 
         <div className="study-hero">
-        <img src="https://adventures.com/media/17840/h-toronto-canada-city-skyline-view-sunset.jpg?anchor=center&mode=crop&width=1920&height=510&format=jpg&quality=80&rnd=132663140480000000" />
+        <img src="https://plus.unsplash.com/premium_photo-1661878122586-2d75a86f3400?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZXVyb3BlYW4lMjBjaXRpZXN8ZW58MHx8MHx8fDA%3D" />
         </div>
 
         <section className="study-why">
@@ -89,50 +89,50 @@ const Canada = () => {
         <h2 className="study-section-title">Top institutes</h2>
 
         <p className="study-universities-desc">
-          Canada’s educational landscape shines with a constellation of top-tier universities that have garnered global recognition for their academic prowess, research contributions, and commitment to innovation.
+          Europe’s educational landscape shines with a constellation of top-tier universities that have garnered global recognition for their academic prowess, research contributions, and commitment to innovation.
         </p>
 
         <div className="study-uni-grid">
           {[
             {
-              name: "Toronto",
-              logo: "https://download.logo.wine/logo/University_of_Toronto/University_of_Toronto-Logo.wine.png",
+              name: "University of Oxford",
+              logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgNHp-OvRbAyrhUNOCfmcpvnMQ-yCR_kJo0Q&s",
             },
             {
-              name: "UBC",
-              logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdEPPnsFDWfJjIx9UsD6RywN-6nvRiI-_5rw&s",
+              name: "University of Cambridge",
+              logo: "https://www.cam.ac.uk/sites/default/files/secondary-logo-stacked.png",
             },
             {
-              name: "McGill",
-              logo: "https://761723.selcdn.ru/studyqa-medialibrary/2682320/uni_profile_8811.jpg",
+              name: "ETH Zurich",
+              logo: "https://www.designyourway.net/blog/wp-content/uploads/2024/04/eth-zurich-logo.jpg",
             },
             {
-              name: "Alberta",
-              logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMCoslp-YDra3NNNfO4QWcOYiGudpgEI541g&s",
+              name: "Imperial College London",
+              logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR1Bt6Fehu_WGvds_6pddLrH5tibY2JJ-wPQ&s",
             },
             {
-              name: "Waterloo",
-              logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2qblT7-n1aFsCuER_RQUJQd3QhexiwxYUMw&s",
+              name: "UCL",
+              logo: "https://www.ucl.ac.uk/brand-and-experience/sites/brand_and_experience/files/styles/all_size_mobile_16_9/public/2026-01/brand-VI-logo-horizontal-fullcolour-fullname.png.jpg?itok=pEXaYjw6",
             },
             {
-              name: "Western",
-              logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz-0asvCaOKUbW1APX2_6cIJ4sZbLSy_CTgw&s",
+              name: "Technical University of Munich",
+              logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqru4dfZYRYmaP18BNdxZINamhsX6GnkOBMA&s",
             },
             {
-              name: "Calgary",
-              logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdmMJgRmNnXF0ttsicIQxfSbU58uYWzKC-jQ&s",
+              name: "LMU Munich",
+              logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXL4QEWJ__M0UJN517UntEiBLbsI648PFCmA&s",
             },
             {
-              name: "Ottawa",
-              logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl2eOM3F-OHHXZfH2yMf_g3DFdIp1TMscRVw&s",
+              name: "KU Leuven",
+              logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUUvA9VKEUsVAD38XQvup9fdRG0EosGzERNA&s",
             },
             {
-              name: "Queens",
-              logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3I0j4AFPXPaVF0AIveDEbNRYkCV0bCd8yWQ&s",
+              name: "University of Amsterdam",
+              logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT3Equ73fX-Il7wButgjd_WMnJhnMtE9e-sw&s",
             },
             {
-              name: "SFU",
-              logo: "https://surreynowleader.com/wp-content/uploads/sites/8/2011/02/86375surreysfu.jpg",
+              name: "Sorbonne University",
+              logo: "https://images.seeklogo.com/logo-png/33/2/sorbonne-university-logo-png_seeklogo-339745.png",
             },
           ].map((uni, i) => (
             <div className="study-uni-card" key={i}>
@@ -152,4 +152,4 @@ const Canada = () => {
   );
 };
 
-export default Canada;
+export default Europe;

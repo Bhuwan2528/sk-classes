@@ -2,7 +2,7 @@ import React from 'react'
 import Home from './Pages/Home/Home'
 import { Route, Routes } from 'react-router-dom'
 import About from './Pages/About'
-import Ielts from './Pages/Ielts'
+import Ielts from './Pages/OtherPages/Ielts'
 import Contact from './Pages/Contact/Contact'
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,6 +17,16 @@ import AdminTestimonials from './Admin/AdminForms/AdminTestimonials'
 import AdminOtherServices from './Admin/AdminForms/AdminOtherServices'
 import AdminEnquiryStats from './Admin/AdminForms/AdminEnquiryStats'
 import Canada from './Pages/StudyVisa/Canada'
+import UnitedKingdom from './Pages/StudyVisa/UnitedKingdom'
+import NewZealand from './Pages/StudyVisa/NewZealand'
+import UnitedStates from './Pages/StudyVisa/UnitedStates'
+import Europe from './Pages/StudyVisa/Europe'
+import Australia from './Pages/StudyVisa/Australia'
+import Pte from './Pages/OtherPages/PTE'
+import SpokenEnglish from './Pages/OtherPages/SpokenEnglish'
+import OverallBandScore from './Pages/OtherPages/OverallBandScore'
+import BenefitsPte from './Pages/OtherPages/BenefitsPte'
+import SpouseVisa from './Pages/OtherPages/SpouseVisa'
 
 const App = () => {
   return (
@@ -27,8 +37,18 @@ const App = () => {
         <Route path='/about' element={<About/>} />
         <Route path='/contact' element={<Contact/>} />
         <Route path='/ielts' element={<Ielts/>} />
+        <Route path='/pte' element={<Pte/>} />
+        <Route path='/spoken-english' element={<SpokenEnglish/>} />
+        <Route path='/band-score' element={<OverallBandScore/>} />
+        <Route path='/pte-benifits' element={<BenefitsPte/>} />
+        <Route path='/spouse-visa' element={<SpouseVisa/>} />
         
-        <Route path='/canada' element={<Canada/>} />
+        <Route path='/study-in-canada' element={<Canada/>} />
+        <Route path='/study-in-uk' element={<UnitedKingdom/>} />
+        <Route path='/study-in-new-zealand' element={<NewZealand/>} />
+        <Route path='/study-in-usa' element={<UnitedStates/>} />
+        <Route path='/study-in-europe' element={<Europe/>} />
+        <Route path='/study-in-australia' element={<Australia/>} />
 
 
         <Route path='/hf' element={<AdminHeaderFooter />} />

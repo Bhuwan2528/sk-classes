@@ -2,6 +2,8 @@
 .study-page {
   display: flex;
   background: #f6f8fb;
+  padding-top: 60px;
+  align-items: flex-start; /* IMPORTANT */
 }
 
 .study-content {
@@ -19,6 +21,7 @@
 
 .study-header-tagline {
   margin-top: 8px;
+  font-size: 20px;
   font-weight: 500;
   color: #111;
 }
@@ -26,7 +29,7 @@
 .study-header-desc {
   margin-top: 12px;
   color: #6b7280;
-  max-width: 650px;
+  max-width: 800px;
   line-height: 1.6;
 }
 
@@ -40,7 +43,7 @@
 
 .study-hero img {
   width: 100%;
-  height: 260px;
+  height: 300px;
   object-fit: cover;
   transition: 0.6s ease;
 }
@@ -85,9 +88,10 @@
   content: "";
   position: absolute;
   left: 0;
-  top: 0;
-  width: 4px;
-  height: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 60%;
   border-radius: 4px 0 0 4px;
 }
 
@@ -97,15 +101,26 @@
 .study-why-card.yellow::before { background: #fcc419; }
 
 .study-why-icon {
-  width: 44px;
-  height: 44px;
+  width: 44px !important;
+  height: 44px !important;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   background: #f1f3f5;
   transition: 0.3s;
 }
+
+.study-why-card.red .study-why-icon { background: #ff6b6b18; }
+.study-why-card.blue .study-why-icon { background: #4dabf71f; }
+.study-why-card.green .study-why-icon { background: #20c99621; }
+.study-why-card.yellow .study-why-icon { background: #fcc31925; }
+
+.study-why-card.red .study-why-icon svg { fill: #ff6b6b; }
+.study-why-card.blue .study-why-icon svg { fill: #4dabf7; }
+.study-why-card.green .study-why-icon svg { fill: #20c996; }
+.study-why-card.yellow .study-why-icon svg { fill: #fcc319; }
 
 .study-why-card:hover {
   transform: translateY(-6px);
@@ -161,7 +176,7 @@
 
 .study-universities-desc {
   color: #6b7280;
-  max-width: 600px;
+  max-width: 800px;
   margin-bottom: 25px;
 }
 
@@ -172,7 +187,7 @@
 }
 
 .study-uni-card {
-  height: 85px;
+  height: 100px;
   background: #fff;
   border-radius: 14px;
   border: 1px solid #e6eaf0;
@@ -180,13 +195,14 @@
   align-items: center;
   justify-content: center;
   transition: 0.35s;
+  overflow: hidden;
 }
 
 .study-uni-card img {
-  max-height: 42px;
-  filter: grayscale(100%);
-  opacity: 0.7;
+  height: 100%;
+  opacity: 0.8;
   transition: 0.3s;
+  object-fit: contain;
 }
 
 .study-uni-card:hover {
@@ -195,7 +211,6 @@
 }
 
 .study-uni-card:hover img {
-  filter: grayscale(0%);
   opacity: 1;
   transform: scale(1.1);
 }
