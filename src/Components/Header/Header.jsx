@@ -32,7 +32,7 @@ const Header = ({ bg }) => {
   useEffect(() => {
     const fetchHeader = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/header-footer");
+        const res = await axios.get("https://sk-classes-backend.onrender.com/api/header-footer");
         if (res.data.data?.header) {
           setHeaderData(res.data.data.header);
         }

@@ -28,7 +28,7 @@ const AdminHero = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/home");
+        const res = await axios.get("https://sk-classes-backend.onrender.com/api/home");
 
         if (res.data?.data?.hero) {
           const incoming = res.data.data.hero;
@@ -116,7 +116,7 @@ const AdminHero = () => {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        "http://localhost:5000/api/home/update",
+        "https://sk-classes-backend.onrender.com/api/home/update",
         formData,
         {
           headers: {

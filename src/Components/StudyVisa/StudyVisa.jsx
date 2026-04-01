@@ -54,7 +54,7 @@ const StudyVisa = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/home");
+        const res = await axios.get("https://sk-classes-backend.onrender.com/api/home");
 
         if (res.data?.data?.studyVisa) {
           setData(res.data.data.studyVisa);

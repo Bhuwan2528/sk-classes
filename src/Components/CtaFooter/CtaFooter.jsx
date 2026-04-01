@@ -47,7 +47,7 @@ const CtaFooter = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/header-footer");
+        const res = await axios.get("https://sk-classes-backend.onrender.com/api/header-footer");
 
         if (res.data?.data) {
           setData({

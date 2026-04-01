@@ -45,7 +45,7 @@ const AboutSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/home");
+        const res = await axios.get("https://sk-classes-backend.onrender.com/api/home");
 
         const data = res.data?.data?.about;
 

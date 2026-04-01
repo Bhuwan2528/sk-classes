@@ -24,7 +24,7 @@ const AdminLogin = () => {
       setLoading(true);
 
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://sk-classes-backend.onrender.com/api/auth/login",
         form
       );
 

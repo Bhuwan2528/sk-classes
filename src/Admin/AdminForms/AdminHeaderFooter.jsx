@@ -46,7 +46,7 @@ const AdminHeaderFooter = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/header-footer");
+        const res = await axios.get("https://sk-classes-backend.onrender.com/api/header-footer");
 
         if (res.data?.data) {
           setFormData({
@@ -87,7 +87,7 @@ const AdminHeaderFooter = () => {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        "http://localhost:5000/api/header-footer/update",
+        "https://sk-classes-backend.onrender.com/api/header-footer/update",
         formData,
         {
           headers: {
