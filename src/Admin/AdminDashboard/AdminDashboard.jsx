@@ -49,7 +49,7 @@ const AdminDashboard = () => {
 
       if (res.ok) {
         localStorage.removeItem("token");
-        window.location.href = "/login";
+        window.location.href = "/admin-login";
       } else {
         console.log("Logout failed");
       }
@@ -264,3 +264,6 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
+
+
+// jkjfnjnlfenvll
