@@ -1,0 +1,202 @@
+/* ================= BASE ================= */
+
+
+.ap-container {
+  display: flex;
+  height: 100vh;
+  background: #0b1120;
+  color: #fff;
+}
+
+/* ================= SIDEBAR ================= */
+.ap-sidebar {
+  width: 260px;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(18px);
+  padding: 20px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.ap-sidebar-brand {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  color: #38bdf8;
+}
+
+/* NAV */
+.ap-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* NAV ITEM */
+.ap-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  font-size: 15px;
+}
+
+/* hover */
+.ap-nav-item:hover {
+  background: rgba(56, 189, 248, 0.08);
+  color: #3594ec;
+  transform: translateX(6px);
+}
+
+/* icon */
+.ap-icon {
+  font-size: 18px;
+}
+
+/* ACTIVE */
+.ap-active {
+  background: linear-gradient(135deg, #178abb, #4144d6);
+  color: white;
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
+}
+
+/* ================= MAIN ================= */
+.ap-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= TOPBAR ================= */
+.ap-topbar {
+  height: 70px;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.ap-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* LOGOUT */
+.ap-logout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.ap-logout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(239, 68, 68, 0.4);
+}
+
+/* ================= CONTENT ================= */
+.ap-content {
+  flex: 1;
+  overflow-y: auto;
+  background: #0f172a;
+}
+
+/* ================= CARD SYSTEM ================= */
+.ap-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(14px);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* GRID */
+.ap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+
+
+
+/* ================= LOGO ================= */
+.ap-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+/* square box */
+.ap-logo-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 1px;
+
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: white;
+
+  box-shadow: 0 8px 18px rgba(56, 189, 248, 0.4);
+  transition: 0.3s;
+}
+
+/* hover effect */
+.ap-logo-box:hover {
+  transform: rotate(-3deg) scale(1.05);
+}
+
+/* text */
+.ap-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.ap-logo-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.ap-logo-sub {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.ap-dash h3{
+  color: #efefef;
+  font-size: 22px;
+  padding: 20px;
+}
+
+.ap-dash p{
+  color: #efefef;
+  font-size: 18px;
+  padding: 0px 20px;
+}

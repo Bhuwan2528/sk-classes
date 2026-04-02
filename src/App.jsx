@@ -27,6 +27,7 @@ import SpokenEnglish from './Pages/OtherPages/SpokenEnglish'
 import OverallBandScore from './Pages/OtherPages/OverallBandScore'
 import BenefitsPte from './Pages/OtherPages/BenefitsPte'
 import SpouseVisa from './Pages/OtherPages/SpouseVisa'
+import AdminDashboard from './Admin/AdminDashboard/AdminDashboard'
 
 const App = () => {
   return (
@@ -61,6 +62,7 @@ const App = () => {
         <Route path='/aos' element={<AdminOtherServices/>} />
         <Route path='/aes' element={<AdminEnquiryStats/>} />
         <Route path='/admin-login' element={<AdminLogin/>} />
+        <Route path='/admin-dashboard' element={<AdminDashboard/>} />
       </Routes>
     </div>
   )

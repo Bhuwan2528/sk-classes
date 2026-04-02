@@ -3,6 +3,7 @@ import "./AdminLogin.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Header from "../../Components/Header/Header";
 
 const AdminLogin = () => {
   const [form, setForm] = useState({
@@ -32,7 +33,7 @@ const AdminLogin = () => {
 
       toast.success("Welcome Admin ");
 
-      setTimeout(() => navigate("/admin"), 1000);
+      setTimeout(() => navigate("/admin-dashboard"), 1000);
 
     } catch {
       toast.error("Invalid credentials ❌");
@@ -44,33 +45,42 @@ const AdminLogin = () => {
   return (
     <section className="admin-login">
 
+
+      {/* floating shapes */}
+      <div className="bg-shape shape1"></div>
+      <div className="bg-shape shape2"></div>
+
       <div className="admin-login-container">
 
-
-
-        {/* RIGHT FORM */}
         <div className="login-form-box">
 
-          <h3>Admin Login</h3>
+          <h2>Welcome Back 👋</h2>
+          <p className="subtitle">Login to SK Classes Admin Panel</p>
 
           <form onSubmit={handleLogin}>
-            <input
-              type="text"
-              name="username"
-              placeholder="Enter Username"
-              value={form.username}
-              onChange={handleChange}
-            />
+            <div className="input-group">
+              <input
+                type="text"
+                name="username"
+                placeholder=" "
+                value={form.username}
+                onChange={handleChange}
+              />
+              <label>Username</label>
+            </div>
 
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter Password"
-              value={form.password}
-              onChange={handleChange}
-            />
+            <div className="input-group">
+              <input
+                type="password"
+                name="password"
+                placeholder=" "
+                value={form.password}
+                onChange={handleChange}
+              />
+              <label>Password</label>
+            </div>
 
-            <button type="submit">
+            <button type="submit" disabled={loading}>
               {loading ? "Logging in..." : "Login"}
             </button>
           </form>
@@ -78,7 +88,6 @@ const AdminLogin = () => {
         </div>
 
       </div>
-
     </section>
   );
 };
